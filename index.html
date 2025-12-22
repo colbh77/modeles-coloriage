@@ -1,0 +1,563 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Modèles colorés — Livre de coloriage</title>
+  <meta name="description" content="Galerie de modèles colorés pour vous inspirer." />  <style>
+    :root{
+      --bg: #0b1220;
+      --card: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --border: rgba(255,255,255,.14);
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      /* Ciel bleu-vert doux (pastel turquoise clair) — référence */
+      --sky: #9FE3E6;
+      --sky2: #B7F0F2;
+      --accent: #7EE7D6;
+      --accent2: #6BB7FF;
+      --radius: 22px;
+      --max: 1120px;
+      --gap: 18px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(159,227,230,.30), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(107,183,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 40% 120%, rgba(126,231,214,.18), transparent 60%),
+        linear-gradient(180deg, #07101f, #050913 70%, #04060e);
+    }
+
+    a{ color: inherit; }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 60px;
+    }
+
+    header{
+      padding: 26px 0 10px;
+    }
+
+    .hero{
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-left{
+      padding: 22px 22px 18px;
+      position: relative;
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+
+    .subtitle{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.5;
+    }
+
+    .pillrow{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: rgba(255,255,255,.86);
+      background: rgba(0,0,0,.14);
+      font-size: 13px;
+    }
+
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--sky), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(159,227,230,.12);
+    }
+
+    .hero-right{
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .smalltitle{
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .02em;
+      color: rgba(255,255,255,.88);
+      margin: 2px 2px 0;
+    }
+
+    .note{
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.78);
+    }
+
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .btn{
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 650;
+      font-size: 13.5px;
+      color: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+      transition: transform .05s ease, background .15s ease, border-color .15s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover{ background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.20); }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(159,227,230,.22), rgba(107,183,255,.20));
+      border-color: rgba(159,227,230,.35);
+    }
+
+    .toolbar{
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search{
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0,0,0,.18);
+    }
+
+    .search input{
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: rgba(255,255,255,.92);
+      font-size: 14px;
+    }
+
+    .select{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+    }
+
+    .select select{
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: rgba(255,255,255,.92);
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Galerie */
+    main{ margin-top: 14px; }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 620px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    figure{
+      margin: 0;
+      position: relative;
+    }
+
+    .thumb{
+      aspect-ratio: 1 / 1; /* format carré 8.5 (esprit) */
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      background: linear-gradient(135deg, rgba(159,227,230,.18), rgba(0,0,0,.15));
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    figcaption{
+      padding: 12px 14px 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .cap-title{
+      font-weight: 720;
+      font-size: 14px;
+      letter-spacing: .01em;
+      color: rgba(255,255,255,.90);
+    }
+
+    .cap-meta{
+      font-size: 13px;
+      color: rgba(255,255,255,.70);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tag{
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+    }
+
+    .open{
+      position: absolute;
+      inset: 10px 10px auto auto;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.25);
+      padding: 8px 10px;
+      font-weight: 650;
+      font-size: 12px;
+      cursor: pointer;
+      color: rgba(255,255,255,.92);
+      transition: background .15s ease, transform .05s ease;
+    }
+    .open:hover{ background: rgba(0,0,0,.35); }
+    .open:active{ transform: translateY(1px); }
+
+    /* Modal */
+    dialog{
+      width: min(960px, 92vw);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 0;
+      background: rgba(10,14,24,.86);
+      color: var(--text);
+      box-shadow: 0 26px 80px rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+    }
+
+    dialog::backdrop{
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(2px);
+    }
+
+    .modal{
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .modal img{
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: rgba(0,0,0,.20);
+    }
+
+    .modalbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .modaltitle{
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .modaltitle strong{
+      font-size: 14px;
+      letter-spacing: .01em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .modaltitle span{
+      font-size: 13px;
+      color: rgba(255,255,255,.70);
+    }
+
+    .close{
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    footer{
+      margin-top: 26px;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .hide{ display:none !important; }
+  </style></head><body>
+  <div class="wrap">
+    <header>
+      <div class="hero">
+        <section class="card hero-left">
+          <h1>Modèles colorés</h1>
+          <p class="subtitle">
+            Bienvenue ! Cette page contient les <strong>versions colorées</strong> de certains dessins de votre livre.
+            Vous pouvez les utiliser comme <strong>inspiration</strong> — ou créer vos propres couleurs.
+          </p>
+          <div class="pillrow" aria-label="infos">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Accès rapide via QR code</span>
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Images en format carré (8.5)</span>
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Mise à jour possible</span>
+          </div>
+        </section><aside class="card hero-right">
+      <div>
+        <div class="smalltitle">Astuce</div>
+        <p class="note">Cliquez sur <strong>Ouvrir</strong> pour voir l’image en grand.</p>
+      </div>
+      <div>
+        <div class="smalltitle">PDF (optionnel)</div>
+        <p class="note">Vous pouvez ajouter ici un lien de téléchargement si vous le souhaitez.</p>
+        <div class="actions">
+          <a class="btn primary" href="#" id="pdfLink" role="button" aria-disabled="true">📄 Télécharger le PDF</a>
+          <a class="btn" href="#" id="contactLink">✉️ Contact</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toolbar">
+    <div class="search" role="search">
+      <span aria-hidden="true">🔎</span>
+      <input id="q" type="search" placeholder="Rechercher (ex : forêt, mandala, page 12…)" autocomplete="off" />
+    </div>
+
+    <label class="select" for="filter">
+      Filtrer :
+      <select id="filter">
+        <option value="all">Tous</option>
+        <option value="animaux">Animaux</option>
+        <option value="nature">Nature</option>
+        <option value="mandalas">Mandalas</option>
+        <option value="personnages">Personnages</option>
+        <option value="autres">Autres</option>
+      </select>
+    </label>
+  </div>
+</header>
+
+<main>
+  <section class="grid" id="grid" aria-label="galerie">
+
+    <!--
+      ✅ AJOUTER VOS IMAGES ICI
+      - Copiez/collez un <figure> et changez :
+        data-tags, src, alt, titre, numéro de page
+
+      - Placez les images dans un dossier /images
+        ex: images/page-01.jpg
+
+      - Conseil : export JPG/WebP ~ 1600x1600 (carré)
+    -->
+
+    <figure class="card item" data-tags="nature,page 1,foret">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-01.jpg" alt="Modèle coloré — Page 1" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 1 — Forêt pastel</div>
+        <div class="cap-meta">
+          <span class="tag">Nature</span>
+          <span class="tag">Page 1</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="card item" data-tags="animaux,page 2,chat">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-02.jpg" alt="Modèle coloré — Page 2" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 2 — Chat rêveur</div>
+        <div class="cap-meta">
+          <span class="tag">Animaux</span>
+          <span class="tag">Page 2</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="card item" data-tags="mandalas,page 3,geometrique">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-03.jpg" alt="Modèle coloré — Page 3" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 3 — Mandala turquoise</div>
+        <div class="cap-meta">
+          <span class="tag">Mandalas</span>
+          <span class="tag">Page 3</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="card item" data-tags="personnages,page 4,fee">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-04.jpg" alt="Modèle coloré — Page 4" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 4 — Personnage (exemple)</div>
+        <div class="cap-meta">
+          <span class="tag">Personnages</span>
+          <span class="tag">Page 4</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="card item" data-tags="autres,page 5,abstrait">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-05.jpg" alt="Modèle coloré — Page 5" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 5 — Abstrait doux</div>
+        <div class="cap-meta">
+          <span class="tag">Autres</span>
+          <span class="tag">Page 5</span>
+        </div>
+      </figcaption>
+    </figure>
+
+    <figure class="card item" data-tags="nature,page 6,mer">
+      <button class="open" type="button" data-open>Ouvrir</button>
+      <img class="thumb" src="images/page-06.jpg" alt="Modèle coloré — Page 6" loading="lazy" />
+      <figcaption>
+        <div class="cap-title">Page 6 — Bord de mer</div>
+        <div class="cap-meta">
+          <span class="tag">Nature</span>
+          <span class="tag">Page 6</span>
+        </div>
+      </figcaption>
+    </figure>
+
+  </section>
+
+  <footer>
+    <p>
+      © <span id="year"></span> — Modèles colorés. 
+      <span style="opacity:.75">(Page privée : partagez le lien avec les personnes qui ont le livre.)</span>
+    </p>
+  </footer>
+</main>
+
+  </div>  <!-- Modal -->  <dialog id="dlg" aria-label="aperçu">
+    <div class="modal">
+      <img id="dlgImg" alt="" />
+      <div class="modalbar">
+        <div class="modaltitle">
+          <strong id="dlgTitle">Aperçu</strong>
+          <span id="dlgMeta">—</span>
+        </div>
+        <button class="close" type="button" id="dlgClose">Fermer</button>
+      </div>
+    </div>
+  </dialog>  <script>
+    // --- Configuration rapide ---
+    // 1) Activez un vrai lien PDF en remplaçant "#" ci-dessous, ex: "models.pdf"
+    // 2) Activez un contact en remplaçant "#" par un mailto:, ex: "mailto:votre@email.com"
+
+    // Exemple:
+    // document.getElementById('pdfLink').href = 'models.pdf';
+    // document.getElementById('contactLink').href = 'mailto:contact@votresite.com';
+
+    // Année
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Recherche + filtre
+    const q = document.getElementById('q');
+    const filter = document.getElementById('filter');
+    const items = Array.from(document.querySelectorAll('.item'));
+
+    function normalize(s){
+      return (s || '').toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,'');
+    }
+
+    function apply(){
+      const term = normalize(q.value);
+      const f = filter.value;
+
+      items.forEach(el => {
+        const tags = normalize(el.getAttribute('data-tags'));
+       
